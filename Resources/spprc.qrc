@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>icon.png</file>
+        <file>bg.jpg</file>
+        <file>loading.gif</file>
+        <file>clear.png</file>
+        <file>lightgray.png</file>
+        <file>handle.png</file>
+        <file>checkbox_checked.png</file>
+        <file>checkbox_unchecked.png</file>
+        <file>search.png</file>
+        <file>shirt.png</file>
+        <file>deleteops.png</file>
+        <file>member_checked.png</file>
+        <file>member_unchecked.png</file>
+        <file>remote_qr.png</file>
+        <file>withball_qr.png</file>
+        <file>failure.png</file>
+        <file>success.png</file>
+        <file>icon.ico</file>
+    </qresource>
+    <qresource prefix="/qss">
+        <file>style.qss</file>
+    </qresource>
+    <qresource prefix="/audio">
+        <file>ding.wav</file>
+    </qresource>
+    <qresource prefix="/font">
+        <file>ssp.otf</file>
+        <file>score.TTF</file>
+    </qresource>
+    <qresource prefix="/txt">
+        <file>license.txt</file>
+        <file>release.txt</file>
+    </qresource>
+</RCC>
