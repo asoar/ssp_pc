@@ -15,60 +15,35 @@ TEMPLATE = app
 
 SOURCES += main.cpp
 
+#windows
+SOURCES += Windows/loginwindow.cpp
+SOURCES += Windows/basewindow.cpp
+
+HEADERS += Windows/loginwindow.h \
+    Utils/config.h
+HEADERS += Windows/basewindow.h
+
+#base widget
+SOURCES += Widgets/Base/uiimagebutton.cpp
+SOURCES += Widgets/Base/uilineedit.cpp
+SOURCES += Widgets/Base/uipushbutton.cpp
+SOURCES += Widgets/Base/uilabel.cpp
+SOURCES += Widgets/Base/uititlebar.cpp
+
+HEADERS += Widgets/Base/uiimagebutton.h
+HEADERS += Widgets/Base/uilabel.h
+HEADERS += Widgets/Base/uilineedit.h
+HEADERS += Widgets/Base/uipushbutton.h
+HEADERS += Widgets/Base/uititlebar.h
 
 
-###############CommCore#################
-#DataBase
-SOURCES += DataBase/xsqlitemanager.cpp
-SOURCES += DataBase/xdatabase.cpp
+#login widget
+SOURCES += Widgets/Login/loginmodewidget.cpp
 
-HEADERS += DataBase/xsqlitemanager.h
-HEADERS += DataBase/xdatabase.h
+HEADERS += Widgets/Login/loginmodewidget.h
 
-#Http
-SOURCES += Http/xhttpmanager.cpp
+RESOURCES += ssprc.qrc
 
-HEADERS += Http/apis.h
-HEADERS += Http/xhttpmanager.h
 
-#Core===TCP&UDP====与机器通信
-SOURCES += Core/xmachinemanager.cpp
-SOURCES += Core/xprofessional.cpp
-SOURCES += Core/xremote.cpp
-SOURCES += Core/xsimple.cpp
 
-HEADERS += Core/xmachinemanager.h
-HEADERS += Core/xprofessional.h
-HEADERS += Core/xremote.h
-HEADERS += Core/xsimple.h
-
-#Models
-HEADERS += Models/model.h
-
-#Widgets
-SOURCES += Widgets/attackwindow.cpp
-SOURCES += Widgets/homewindow.cpp
-SOURCES += Widgets/loginwindow.cpp
-SOURCES += Widgets/matchtimewindow.cpp
-
-HEADERS += Widgets/attackwindow.h
-HEADERS += Widgets/homewindow.h
-HEADERS += Widgets/loginwindow.h
-HEADERS += Widgets/matchtimewindow.h
-
-#Utils
-SOURCES += Utils/xpublicmethods.cpp
-SOURCES += Utils/log.cpp
-
-HEADERS += Utils/xpublicmethods.h
-HEADERS += Utils/utils.h
-HEADERS += Utils/log.h
-HEADERS += Utils/consts.h
-
-RESOURCES += Resources/ssprc.qrc
-
-FORMS += Widgets/attackwindow.ui
-FORMS += Widgets/homewindow.ui
-FORMS += Widgets/loginwindow.ui
-FORMS += Widgets/matchtimewindow.ui
 
