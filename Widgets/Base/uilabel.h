@@ -7,11 +7,9 @@ class UILabel : public QLabel
 {
     Q_OBJECT
 public:
-    explicit UILabel(QWidget *parent = 0);
+    UILabel(QWidget *parent);
+public:
 
-signals:
-
-public slots:
 };
 
 #endif // UILABEL_H

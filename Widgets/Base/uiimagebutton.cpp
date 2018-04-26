@@ -4,7 +4,7 @@
 #include <QMouseEvent>
 
 UiImageButton::UiImageButton(QWidget *parent) :
-    QPushButton(parent)
+    UIPushButton(parent)
 {
     btnState = ENUM_BTNSTATE_NORMAL;
     setBtnBackImgFile(":/skin/images/common/button/btn_bg_normal.png",

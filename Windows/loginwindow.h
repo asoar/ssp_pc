@@ -2,7 +2,6 @@
 #define LOGINWINDOW_H
 
 #include "basewindow.h"
-#include "Widgets/Login/loginmodewidget.h"
 
 class LoginWindow : public BaseWindow
 {
@@ -11,32 +10,28 @@ public:
     explicit LoginWindow(QWidget *parent = 0);
     ~LoginWindow();
 private:
-    void Initial();
-    void InitSize();
-    void InitText();
-    void InitLayout();
-    void InitView();
-    void InitConnect();
-protected:
-    void mousePressEvent(QMouseEvent *e);
-    void mouseMoveEvent(QMouseEvent *e);
-    void mouseReleaseEvent(QMouseEvent *e);
+    void initial();
+    void initSize();
+    void initText();
+    void initLayout();
+    void initView();
+    void initConnect();
 signals:
 
-public slots:
-
+private slots:
+    void onAccountLoginClicked();
+    void onMessageLoginClicked();
+    void onVerifyBtnClicked();
+    void onLoginBtnClicked();
 private:
-    LoginModeWidget  *m_loginWidget;//登陆方式
-    QLineEdit   *m_accountEdit;//账号
-    QLineEdit   *m_phoneEdit;//手机号
-    QLineEdit   *m_passwordEdit;//密码
-    QLineEdit   *m_verifyEdit;//验证码
-    QLabel      *m_tipL;
-    QPushButton *m_verifyBtn;
-    QPushButton *m_loginBtn;
-
-private:
-    QPoint last;
+    LoginModeWidget *m_loginModeWidget;//登陆方式
+    LoginEditWidget *m_accountEdit;//账号
+    LoginEditWidget *m_passwordEdit;//密码
+    LoginEditWidget *m_phoneAccountEdit;//手机账号
+    LoginEditWidget *m_verifyEdit;//验证码
+    UIPushButton     *m_verifyBtn;
+    UIPushButton     *m_loginBtn;
+    UILabel          *m_tipL;
 };
 
 #endif // LOGINWINDOW_H

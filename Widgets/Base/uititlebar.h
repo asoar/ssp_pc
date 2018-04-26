@@ -19,7 +19,7 @@ public:
     UITitleBar(QWidget *parent);
     ~UITitleBar();
 private:
-    void Initial();
+    void initial();
     void initView();
     void initConnect();
 public:
@@ -65,8 +65,8 @@ private slots:
     void onRollTitle();
 
 private:
-    QLabel*         m_pIcon;               // 标题栏图标;
-    QLabel*         m_pTitleContent;       // 标题栏内容;
+    UILabel*        m_pIcon;               // 标题栏图标;
+    UILabel*        m_pTitleContent;       // 标题栏内容;
     UiImageButton*  m_pButtonMin;          // 最小化按钮;
     UiImageButton*  m_pButtonRestore;      // 最大化还原按钮;
     UiImageButton*  m_pButtonMax;          // 最大化按钮;

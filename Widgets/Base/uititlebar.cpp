@@ -21,8 +21,7 @@ UITitleBar::UITitleBar(QWidget *parent)
     , m_isTransparent(false)
     , m_isDrag(true)
 {
-    // 初始化;
-    Initial();
+    initial();
     initView();
     initConnect();
 }
@@ -32,15 +31,15 @@ UITitleBar::~UITitleBar()
 
 }
 
-void UITitleBar::Initial()
+void UITitleBar::initial()
 {
-    m_pIcon = new QLabel;
-    m_pTitleContent = new QLabel;
+    m_pIcon = new UILabel(this);
+    m_pTitleContent = new UILabel(this);
 
-    m_pButtonMin = new UiImageButton();
-    m_pButtonRestore = new UiImageButton();
-    m_pButtonMax = new UiImageButton();
-    m_pButtonClose = new UiImageButton();
+    m_pButtonMin = new UiImageButton(this);
+    m_pButtonRestore = new UiImageButton(this);
+    m_pButtonMax = new UiImageButton(this);
+    m_pButtonClose = new UiImageButton(this);
 
     m_pButtonMin->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
     m_pButtonRestore->setFixedSize(QSize(BUTTON_WIDTH, BUTTON_HEIGHT));
@@ -58,17 +57,17 @@ void UITitleBar::Initial()
     m_pButtonMax->setToolTip(QStringLiteral("最大化"));
     m_pButtonClose->setToolTip(QStringLiteral("关闭"));
 
-    QHBoxLayout* mylayout = new QHBoxLayout(this);
+    QHBoxLayout* hlayout = new QHBoxLayout(this);
 
-    mylayout->addWidget(m_pIcon);
-    mylayout->addWidget(m_pTitleContent);
-    mylayout->addWidget(m_pButtonMin);
-    mylayout->addWidget(m_pButtonRestore);
-    mylayout->addWidget(m_pButtonMax);
-    mylayout->addWidget(m_pButtonClose);
+    hlayout->addWidget(m_pIcon);
+    hlayout->addWidget(m_pTitleContent);
+    hlayout->addWidget(m_pButtonMin);
+    hlayout->addWidget(m_pButtonRestore);
+    hlayout->addWidget(m_pButtonMax);
+    hlayout->addWidget(m_pButtonClose);
 
-    mylayout->setContentsMargins(20, 0, 20, 0);
-    mylayout->setSpacing(20);
+    hlayout->setContentsMargins(20, 0, 20, 0);
+    hlayout->setSpacing(20);
 
     m_pTitleContent->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     this->setFixedHeight(TITLE_HEIGHT);//默认高度
@@ -98,7 +97,7 @@ void UITitleBar::initView()
                                       ":/image/Resources/login_close.png", \
                                       ":/image/Resources/login_close.png");
 
-
+    this->m_pIcon->hide();
 }
 
 void UITitleBar::initConnect()
@@ -126,6 +125,7 @@ void UITitleBar::setTitleHeight(int height)
 
 void UITitleBar::setTitleIcon(QString filePath, QSize IconSize)
 {
+    this->m_pIcon->show();
     QPixmap titleIcon(filePath);
     m_pIcon->setPixmap(titleIcon.scaled(IconSize));
 }

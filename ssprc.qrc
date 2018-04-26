@@ -6,5 +6,9 @@
         <file>Resources/login_mini.png</file>
         <file>Resources/login_pass.png</file>
         <file>Resources/login_phone.png</file>
+        <file>Resources/login_account_gray.png</file>
+        <file>Resources/login_account.png</file>
+        <file>Resources/login_message_gray.png</file>
+        <file>Resources/login_message.png</file>
     </qresource>
 </RCC>

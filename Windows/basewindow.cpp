@@ -2,13 +2,15 @@
 
 #define kLoginWindowW 500
 #define kLoginWindowH 500
+#define kTitleBarH    80
 
 BaseWindow::BaseWindow(QWidget *parent)
     : QWidget(parent)
+    , m_bgColor(QColor(242, 242, 242))
 {
-    Initial();
-    InitView();
-    InitConnect();
+    initial();
+    initView();
+    initConnect();
 }
 
 BaseWindow::~BaseWindow()
@@ -16,18 +18,17 @@ BaseWindow::~BaseWindow()
 
 }
 
-void BaseWindow::Initial()
+void BaseWindow::initial()
 {
     m_titleBar = new UITitleBar(this);
     m_titleBar->move(0, 0);
     m_titleBar->setTitleContent(QString("UF技统"), 20);
     m_titleBar->setTitleColor(Qt::white);
-    m_titleBar->setTitleIcon(":/image/Resources/login_logo.png", QSize(35,35));
-    m_titleBar->setTitleHeight(80);
+    m_titleBar->setTitleHeight(kTitleBarH);
     m_titleBar->setButtonType(MIN_MAX_BUTTON);
 }
 
-void BaseWindow::InitView()
+void BaseWindow::initView()
 {
     this->setWindowFlags(Qt::FramelessWindowHint | Qt::WindowMinimizeButtonHint);
     this->setMinimumSize(100, 100);
@@ -35,7 +36,7 @@ void BaseWindow::InitView()
     this->resize(kLoginWindowW, kLoginWindowH);
 }
 
-void BaseWindow::InitConnect()
+void BaseWindow::initConnect()
 {
     connect(m_titleBar, SIGNAL(signalButtonMinClicked()), this, SLOT(onButtonMinClicked()));
     connect(m_titleBar, SIGNAL(signalButtonRestoreClicked()), this, SLOT(onButtonRestoreClicked()));
@@ -43,15 +44,23 @@ void BaseWindow::InitConnect()
     connect(m_titleBar, SIGNAL(signalButtonCloseClicked()), this, SLOT(onButtonCloseClicked()));
 }
 
+void BaseWindow::setBackgroundColor(QColor color)
+{
+    QPalette pal(this->palette());
+    pal.setColor(QPalette::Background, m_bgColor);
+    setAutoFillBackground(true);
+    setPalette(pal);
+}
+
 void BaseWindow::paintEvent(QPaintEvent* event)
 {
-    //设置背景色;
-    QPainter painter(this);
-    QPainterPath pathBack;
-    pathBack.setFillRule(Qt::WindingFill);
-    pathBack.addRoundedRect(QRect(0, 0, this->width(), this->height()), 3, 3);
-    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
-    painter.fillPath(pathBack, QBrush(QColor(238, 223, 204)));
+//    //设置背景色;
+//    QPainter painter(this);
+//    QPainterPath pathBack;
+//    pathBack.setFillRule(Qt::WindingFill);
+//    pathBack.addRoundedRect(QRect(0, 0, this->width(), this->height()), 3, 3);
+//    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
+//    painter.fillPath(pathBack, QBrush(QColor(238, 223, 204)));
 
     return QWidget::paintEvent(event);
 }

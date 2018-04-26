@@ -1,10 +1,10 @@
 #ifndef UIIMAGEBUTTON_H
 #define UIIMAGEBUTTON_H
 
-#include <QPushButton>
+#include "uipushbutton.h"
 #include <QString>
 
-class UiImageButton : public QPushButton
+class UiImageButton : public UIPushButton
 {
     Q_OBJECT
 public:

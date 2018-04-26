@@ -15,13 +15,22 @@ TEMPLATE = app
 
 SOURCES += main.cpp
 
+#comm
+SOURCES += Comm/commsimple.cpp
+
+HEADERS += Comm/commsimple.h
+
+
 #windows
 SOURCES += Windows/loginwindow.cpp
 SOURCES += Windows/basewindow.cpp
 
-HEADERS += Windows/loginwindow.h \
-    Utils/config.h
+HEADERS += Windows/loginwindow.h
 HEADERS += Windows/basewindow.h
+
+#utils
+HEADERS += Utils/config.h
+HEADERS += Utils/apis.h
 
 #base widget
 SOURCES += Widgets/Base/uiimagebutton.cpp
@@ -39,8 +48,10 @@ HEADERS += Widgets/Base/uititlebar.h
 
 #login widget
 SOURCES += Widgets/Login/loginmodewidget.cpp
+SOURCES += Widgets/Login/logineditwidget.cpp
 
 HEADERS += Widgets/Login/loginmodewidget.h
+HEADERS += Widgets/Login/logineditwidget.h
 
 RESOURCES += ssprc.qrc
 

@@ -2,7 +2,6 @@
 #define BASEWINDOW_H
 
 #include "../Utils/config.h"
-#include "Widgets/Base/uititlebar.h"
 
 class BaseWindow : public QWidget
 {
@@ -11,9 +10,11 @@ public:
     explicit BaseWindow(QWidget *parent = 0);
     ~BaseWindow();
 private:
-    void Initial();
-    void InitView();
-    void InitConnect();
+    void initial();
+    void initView();
+    void initConnect();
+public:
+    void setBackgroundColor(QColor color);
 protected:
     void resizeEvent(QResizeEvent* size);
     void paintEvent(QPaintEvent *event);
@@ -26,6 +27,8 @@ public slots:
 
 protected:
     UITitleBar *m_titleBar;
+private:
+    QColor m_bgColor;
 };
 
 #endif // BASEWINDOW_H
