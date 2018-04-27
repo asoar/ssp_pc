@@ -140,5 +140,37 @@ void LoginWindow::onVerifyBtnClicked()
 
 void LoginWindow::onLoginBtnClicked()
 {
+    QMap<QString, QString> params;
 
+    if(m_loginModeWidget->loginMode() == AccountLoginMode){//账号登陆
+
+        if(m_accountEdit->text().length() < 11){//手机账号有问题
+            this->showInfoMessage(QString("请输入正确的手机账号"));
+            return;
+        }
+
+        if(m_passwordEdit->text().length() < 6){//密码位数不够
+            this->showInfoMessage(QString("请输入正确的密码"));
+            return;
+        }
+
+        params.insert(QString("phone"), m_accountEdit->text());
+        params.insert(QString("pwd"), m_passwordEdit->text());
+        HttpManager::instance()->httpPhonePasswordLoginRequest(params);
+    } else {//短信登陆
+
+        if(m_phoneAccountEdit->text().length() < 11){//手机账号有问题
+            this->showInfoMessage(QString("请输入正确的手机账号"));
+            return;
+        }
+
+        if(m_verifyEdit->text().length() < 4){//验证码不能少于4位
+            this->showInfoMessage(QString("请输入正确的验证码"));
+            return;
+        }
+
+        params.insert(QString("phone"), m_phoneAccountEdit->text());
+        params.insert(QString("pwd"), m_verifyEdit->text());
+        HttpManager::instance()->httpPhoneVerifyLoginRequest(params);
+    }
 }

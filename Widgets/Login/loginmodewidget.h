@@ -3,6 +3,12 @@
 
 #include "../Utils/config.h"
 
+enum LoginModeType
+{
+    AccountLoginMode = 0,         // 最小化和关闭按钮;
+    MessageLoginMode        // 最小化、最大化和关闭按钮;
+};
+
 class LoginModeWidget : public QWidget
 {
     Q_OBJECT
@@ -14,6 +20,8 @@ private:
     void initLayout();
     void initConnect();
     void updateSelectStatus();
+public:
+    LoginModeType loginMode();
 signals:
     void signalAccountLoginClicked();
     void signalMessageLoginClicked();
@@ -23,7 +31,7 @@ private slots:
 private:
     UiImageButton *m_accountLoginBtn;//账号登陆
     UiImageButton *m_messageLoginBtn;//短信登陆
-    int m_selectPos;
+    LoginModeType  m_loginMode;
 };
 
 #endif // LOGINMODEWIDGET_H

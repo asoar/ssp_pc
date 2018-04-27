@@ -31,6 +31,7 @@ void LoginEditWidget::initView()
     pal.setColor(QPalette::Background, Qt::white);
     this->setAutoFillBackground(true);
     this->setPalette(pal);
+
 }
 
 void LoginEditWidget::initConnect()
@@ -76,7 +77,6 @@ void LoginEditWidget::setTextRegExp(QRegExp reg)
 void LoginEditWidget::setPasswordMode()
 {
     m_contentEdit->setEchoMode(QLineEdit::Password);
-//    m_contentEdit->setEchoMode(QLineEdit::PasswordEchoOnEdit);
 }
 
 #pragma mark 获取编辑框内容

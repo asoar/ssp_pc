@@ -8,7 +8,7 @@ const QString kApiExtension = QString(".dtm");
 //授权接口===测试服务器
 //const QString kApiBaseAuthHost = QString("http://192.168.1.153:8082");
 //授权接口===正式服务器
-const QString kApiBaseAuthHost = QString("https://www.ikaihuo.com:8443");
+const QString kApiBaseAuthHost = QString("https://ufssp.ikaihuo.com:8443");
 //手机号登陆
 const QString kPathAuthLogin = kApiBaseAuthHost + QString("/auth/login") + kApiExtension;
 //发送手机验证码

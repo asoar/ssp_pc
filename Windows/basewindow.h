@@ -15,6 +15,7 @@ private:
     void initConnect();
 public:
     void setBackgroundColor(QColor color);
+    void showInfoMessage(const QString &message);
 protected:
     void resizeEvent(QResizeEvent* size);
     void paintEvent(QPaintEvent *event);

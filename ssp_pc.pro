@@ -13,13 +13,28 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = ssp_pc
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+
 
 #comm
 SOURCES += Comm/commsimple.cpp
 
 HEADERS += Comm/commsimple.h
 
+
+#model
+SOURCES += Model/basemodel.cpp
+SOURCES += Model/httpresultbasemodel.cpp
+
+HEADERS += Model/basemodel.h
+HEADERS += Model/httpresultbasemodel.h
+
+#http
+SOURCES += Http/httpapi.cpp
+SOURCES += Http/httpmanager.cpp
+
+HEADERS += Http/httpapi.h
+HEADERS += Http/httpmanager.h
 
 #windows
 SOURCES += Windows/loginwindow.cpp

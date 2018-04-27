@@ -12,7 +12,16 @@
 #include <QHBoxLayout>
 #include <QPainter>
 #include <QUdpSocket>
+#include <QMessageBox>
 
+#include <QMap>
+#include <QObject>
+#include <QString>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
+
+#include "apis.h"
 #include "Widgets/Base/uilabel.h"
 #include "Widgets/Base/uilineedit.h"
 #include "Widgets/Base/uititlebar.h"
@@ -21,6 +30,8 @@
 #include "Widgets/Login/loginmodewidget.h"
 #include "Widgets/Login/logineditwidget.h"
 
+#include "Http/httpkit.h"
+#include "Http/httpmanager.h"
 
 
 //获取实际屏幕大小

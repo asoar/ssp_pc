@@ -1,15 +1,9 @@
 #include "loginmodewidget.h"
 
-enum SelectStatus
-{
-    AccountSelectStatus = 0, // 账号登陆选中状态
-    MessageSelectStatus      // 短信登陆选中状态
-};
-
 
 LoginModeWidget::LoginModeWidget(QWidget *parent)
     : QWidget(parent)
-    , m_selectPos(AccountSelectStatus)
+    , m_loginMode(AccountLoginMode)
 {
     initial();
     initView();
@@ -26,9 +20,9 @@ void LoginModeWidget::initial()
     this->setPalette(pal);
 
     m_accountLoginBtn = new UiImageButton(this);
-    m_accountLoginBtn->setFixedSize(80, 40);
+    m_accountLoginBtn->setFixedSize(80, 44);
     m_messageLoginBtn = new UiImageButton(this);
-    m_messageLoginBtn->setFixedSize(80, 40);
+    m_messageLoginBtn->setFixedSize(80, 44);
 }
 
 void LoginModeWidget::initView()
@@ -42,7 +36,7 @@ void LoginModeWidget::initLayout()
     hlayout->addWidget(m_accountLoginBtn);
     hlayout->addStretch();
     hlayout->addWidget(m_messageLoginBtn);
-    hlayout->setContentsMargins(100, 27, 100, 0);
+    hlayout->setContentsMargins(100, 22, 100, 0);
     this->setLayout(hlayout);
 }
 
@@ -54,7 +48,7 @@ void LoginModeWidget::initConnect()
 
 void LoginModeWidget::updateSelectStatus()
 {
-    if(m_selectPos == AccountSelectStatus){
+    if(m_loginMode == AccountLoginMode){
         m_accountLoginBtn->setBtnBackImgFile(":/image/Resources/login_account.png", \
                                         ":/image/Resources/login_account.png", \
                                         ":/image/Resources/login_account.png", \
@@ -76,15 +70,20 @@ void LoginModeWidget::updateSelectStatus()
                                         ":/image/Resources/login_message.png");
 
     }
+}
 
+
+LoginModeType LoginModeWidget::loginMode()
+{
+    return m_loginMode;
 }
 
 void LoginModeWidget::onAccountLoginClicked()
 {
-    if(m_selectPos == AccountSelectStatus)
+    if(m_loginMode == AccountLoginMode)
         return;
 
-    m_selectPos = AccountSelectStatus;
+    m_loginMode = AccountLoginMode;
     updateSelectStatus();
 
     emit signalAccountLoginClicked();
@@ -92,10 +91,10 @@ void LoginModeWidget::onAccountLoginClicked()
 
 void LoginModeWidget::onMessageLoginClicked()
 {
-    if(m_selectPos == MessageSelectStatus)
+    if(m_loginMode == MessageLoginMode)
         return;
 
-    m_selectPos = MessageSelectStatus;
+    m_loginMode = MessageLoginMode;
     updateSelectStatus();
 
     emit signalMessageLoginClicked();

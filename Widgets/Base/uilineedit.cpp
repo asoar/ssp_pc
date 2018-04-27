@@ -3,7 +3,8 @@
 UILineEdit::UILineEdit(QWidget *parent)
     : QLineEdit(parent)
 {
-    setStyleSheet("QLineEdit{Border:Opx none black;}");
+    setStyleSheet("background:transparent;border-width:0px;border-style:outset;}");
+
     setFont(QFont("Timers" , 16 ,  QFont::Normal));
 }
 

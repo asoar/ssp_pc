@@ -52,6 +52,12 @@ void BaseWindow::setBackgroundColor(QColor color)
     setPalette(pal);
 }
 
+void BaseWindow::showInfoMessage(const QString &message)
+{
+    QMessageBox::information(this, QString("提示"), message);
+}
+
+
 void BaseWindow::paintEvent(QPaintEvent* event)
 {
 //    //设置背景色;
