@@ -3,6 +3,7 @@
 
 #include "../Utils/config.h"
 #include "uiimagebutton.h"
+#include <QTimer>
 
 enum ButtonType
 {

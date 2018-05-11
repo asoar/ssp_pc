@@ -77,6 +77,8 @@ void LoginWindow::initLayout()
 
 void LoginWindow::initView()
 {
+    setStyleSheet("LoginWindow{border:none;}");
+
     m_titleBar->setTitleIcon(":/image/Resources/login_logo.png", QSize(35,35));
     m_titleBar->setButtonType(MIN_BUTTON);
 
@@ -140,7 +142,12 @@ void LoginWindow::onVerifyBtnClicked()
 
 void LoginWindow::onLoginBtnClicked()
 {
-    QMap<QString, QString> params;
+    DBComm *db = new DBComm();
+    db->openDB();
+    delete db; db = NULL;
+    return;
+
+    QMap<QString, QVariant> params;
 
     if(m_loginModeWidget->loginMode() == AccountLoginMode){//账号登陆
 
@@ -156,7 +163,22 @@ void LoginWindow::onLoginBtnClicked()
 
         params.insert(QString("phone"), m_accountEdit->text());
         params.insert(QString("pwd"), m_passwordEdit->text());
-        HttpManager::instance()->httpPhonePasswordLoginRequest(params);
+        params.insert(QString("type"), 1);
+
+        m_loginBtn->setStyleSheet("background-color:rgb(0,0,0);\
+                                  border:0px; border-radius:4px;\
+                                  font-size:18px;color:white;");
+        m_loginBtn->setEnabled(false);
+        qDebug() << "------------1";
+        if(kHttpManager->httpPhonePasswordLoginRequest(params) == true){//此处阻塞等待返回结果
+//            qDebug() << "token-->" << kSettings.value(tokenKey).toString();
+//            qDebug() << "userId-->" << kSettings.value(userIdKey).toString();
+        }
+        m_loginBtn->setEnabled(true);
+        m_loginBtn->setStyleSheet("background-color:rgb(239,83,80);\
+                                  border:0px; border-radius:4px;\
+                                  font-size:18px;color:white;");
+         qDebug() << "------------2";
     } else {//短信登陆
 
         if(m_phoneAccountEdit->text().length() < 11){//手机账号有问题
@@ -171,6 +193,6 @@ void LoginWindow::onLoginBtnClicked()
 
         params.insert(QString("phone"), m_phoneAccountEdit->text());
         params.insert(QString("pwd"), m_verifyEdit->text());
-        HttpManager::instance()->httpPhoneVerifyLoginRequest(params);
+//        HttpManager::instance()->httpPhoneVerifyLoginRequest(params);
     }
 }

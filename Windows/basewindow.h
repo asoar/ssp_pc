@@ -14,12 +14,14 @@ private:
     void initView();
     void initConnect();
 public:
+//    void post(HttpApi api);
+    /** 设置window背景颜色*/
     void setBackgroundColor(QColor color);
+    /** 提醒消息框*/
     void showInfoMessage(const QString &message);
 protected:
     void resizeEvent(QResizeEvent* size);
     void paintEvent(QPaintEvent *event);
-
 public slots:
     void onButtonMinClicked();
     void onButtonRestoreClicked();

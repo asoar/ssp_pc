@@ -1,4 +1,7 @@
 #include "basewindow.h"
+#include <QDesktopWidget>
+#include <QApplication>
+#include <QMessageBox>
 
 #define kLoginWindowW 500
 #define kLoginWindowH 500
@@ -46,6 +49,7 @@ void BaseWindow::initConnect()
 
 void BaseWindow::setBackgroundColor(QColor color)
 {
+    m_bgColor = color;
     QPalette pal(this->palette());
     pal.setColor(QPalette::Background, m_bgColor);
     setAutoFillBackground(true);

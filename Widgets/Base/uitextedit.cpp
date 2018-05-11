@@ -1,7 +1,7 @@
-#include "uilineedit.h"
+#include "uitextedit.h"
 
-UILineEdit::UILineEdit(QWidget *parent)
-    : QLineEdit(parent)
+UITextEdit::UITextEdit(QWidget *parent)
+    :QTextEdit(parent)
 {
     setStyleSheet("background:transparent;border-width:0px;border-style:outset;border:0;outline:none;}");
 

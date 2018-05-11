@@ -2,6 +2,7 @@
 #define COMMSIMPLE_H
 
 #include "../Utils/config.h"
+#include <QUdpSocket>
 
 class CommSimple
 {

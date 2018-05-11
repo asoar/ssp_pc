@@ -1,5 +1,5 @@
 #include "loginmodewidget.h"
-
+#include <QHBoxLayout>
 
 LoginModeWidget::LoginModeWidget(QWidget *parent)
     : QWidget(parent)
