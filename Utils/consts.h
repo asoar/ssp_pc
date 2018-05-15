@@ -2,11 +2,12 @@
 #define CONSTS
 
 #include <QSettings>
-
+#include <QDesktopWidget>
+#include <QApplication>
 
 //获取实际屏幕大小
-#define kScreenW QApplication::desktop()->screenGeometry()->width()
-#define kScreenH QApplication::desktop()->screenGeometry()->height()
+#define kScreenW QApplication::desktop()->screenGeometry().width()
+#define kScreenH QApplication::desktop()->screenGeometry().height()
 //可获取虚拟屏幕大小
 #define kVirtualScreenW QApplication::desktop()->width()
 #define kVirtualScreenH QApplication::desktop()->height()

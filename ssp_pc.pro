@@ -15,12 +15,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp
 
-
 #comm
 SOURCES += Comm/commsimple.cpp
 
 HEADERS += Comm/commsimple.h
-
 
 #database
 SOURCES += DataBase/dbcomm.cpp
@@ -47,10 +45,12 @@ HEADERS += Http/httpmanager.h
 SOURCES += Windows/loginwindow.cpp
 SOURCES += Windows/basewindow.cpp
 SOURCES += Windows/homewindow.cpp
+SOURCES += Windows/creatematchwindow.cpp
 
 HEADERS += Windows/loginwindow.h
 HEADERS += Windows/basewindow.h
 HEADERS += Windows/homewindow.h
+HEADERS += Windows/creatematchwindow.h
 
 #utils
 HEADERS += Utils/config.h
@@ -79,6 +79,11 @@ SOURCES += Widgets/Login/logineditwidget.cpp
 
 HEADERS += Widgets/Login/loginmodewidget.h
 HEADERS += Widgets/Login/logineditwidget.h
+
+#home widget
+SOURCES += Widgets/Home/homematchwidget.cpp
+
+HEADERS += Widgets/Home/homematchwidget.h
 
 RESOURCES += ssprc.qrc
 

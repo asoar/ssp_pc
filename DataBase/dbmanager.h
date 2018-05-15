@@ -3,11 +3,16 @@
 
 #include <QObject>
 
+#define kDBManager DBManager::instance()
 class DBManager : public QObject
 {
     Q_OBJECT
-public:
-    explicit DBManager(QObject *parent = 0);
+private:
+    static DBManager* instance();
+private:
+    DBManager(QObject *parent=0);
+    ~DBManager();
+    static DBManager *pInstance;
 
 signals:
 

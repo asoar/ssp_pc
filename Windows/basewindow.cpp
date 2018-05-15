@@ -5,7 +5,7 @@
 
 #define kLoginWindowW 500
 #define kLoginWindowH 500
-#define kTitleBarH    80
+#define kTitleBarH    60
 
 BaseWindow::BaseWindow(QWidget *parent)
     : QWidget(parent)
@@ -28,7 +28,7 @@ void BaseWindow::initial()
     m_titleBar->setTitleContent(QString("UF技统"), 20);
     m_titleBar->setTitleColor(Qt::white);
     m_titleBar->setTitleHeight(kTitleBarH);
-    m_titleBar->setButtonType(MIN_MAX_BUTTON);
+    m_titleBar->setButtonType(MIN_BUTTON);
 }
 
 void BaseWindow::initView()

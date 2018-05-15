@@ -14,7 +14,6 @@ private:
     void initView();
     void initConnect();
 public:
-//    void post(HttpApi api);
     /** 设置window背景颜色*/
     void setBackgroundColor(QColor color);
     /** 提醒消息框*/

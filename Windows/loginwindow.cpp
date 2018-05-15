@@ -80,7 +80,7 @@ void LoginWindow::initView()
     setStyleSheet("LoginWindow{border:none;}");
 
     m_titleBar->setTitleIcon(":/image/Resources/login_logo.png", QSize(35,35));
-    m_titleBar->setButtonType(MIN_BUTTON);
+    m_titleBar->setButtonType(ONLY_CLOSE_BUTTON);
 
     m_accountEdit->setIcon(":/image/Resources/login_phone.png");
     m_accountEdit->setTextRegExp(QRegExp("^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$"));
@@ -142,11 +142,6 @@ void LoginWindow::onVerifyBtnClicked()
 
 void LoginWindow::onLoginBtnClicked()
 {
-    DBComm *db = new DBComm();
-    db->openDB();
-    delete db; db = NULL;
-    return;
-
     QMap<QString, QVariant> params;
 
     if(m_loginModeWidget->loginMode() == AccountLoginMode){//账号登陆
